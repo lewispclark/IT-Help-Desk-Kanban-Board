@@ -1,0 +1,33 @@
+<%- include partials/header %>
+
+    <title>Holiday</title> 
+
+    <link rel="stylesheet" href="./stylesheets/holiday.css">
+    <link rel="stylesheet" href="./stylesheets/archive.css">
+
+    </head>
+
+    <body>
+
+        <%- include partials/navbar %>
+
+            <div class="container-fluid">
+
+                <main>
+
+                    <center style="padding-top: 40px; padding-bottom:10px; font-size: xx-large; font-weight: bolder;">
+                        Book Holiday</center>
+
+                    <div class="wrapper" style="margin: 0 auto; border:solid 1px black; border-radius:5px;">
+                        <form action="/holiday" method="POST" style="width:fit-content; margin: 0 auto;">
+                            <label for="startDate">Start Date</label>
+                            <input required type="date" id="startDate" name="startDate" value=""><br>
+                            <label for="startDate">End Date</label>
+                            <input required type="date" id="endDate" name="endDate" value=""><br>
+                            <button style="width:100%;" class="field btn" type="submit" value="Submit">Submit</button>
+                        </form>
+                    </div>
+
+                </main>
+            </div>
+            <%- include partials/footer %>

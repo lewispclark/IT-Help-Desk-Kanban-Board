@@ -1,0 +1,16 @@
+<div id="mainbox" onclick="openNavbar()">&#9776;</div>
+<div id="menu" class="navbar">
+    <a href="ticket-list" class="nav_elements"><i class="fa-solid fa-ticket"></i> Ticket List</a>
+    <% if(deptid==6){ %> <a href="archive" class="nav_elements"><i class="fa-solid fa-box-archive"></i> Archive</a>
+        <% } %>
+            <a href="faq" class="nav_elements"><i class="fa-solid fa-clipboard-question"></i> FAQ</a>
+            <a class="closebtn" onclick="closeNavbar()">&times;</a>
+            <% if(deptid==6){ %> <a href="holiday" class="nav_elements"><i class="fa-solid fa-calendar"></i> Book Holiday</a>
+        <% } %>
+        <% if(deptid==6){ %> <a href="hardware" class="nav_elements"><i class="fa-solid fa-microchip"></i> Hardware</a>
+        <% } %>
+        <% if(deptid==6){ %> <a href="software" class="nav_elements"><i class="fa-brands fa-uncharted"></i> Software</a>
+        <% } %>
+            <a href="logout" class="logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+
+</div>

@@ -1,0 +1,89 @@
+<%- include partials/header %>
+
+    <title>FAQ</title> 
+
+    <link rel="stylesheet" href="./stylesheets/faq.css">
+    <link rel="stylesheet" href="./stylesheets/archive.css">
+
+    <body>
+
+        <%- include partials/navbar %>
+            <main>
+
+                <center style="padding-top: 40px; padding-bottom:10px; font-size: xx-large; font-weight: bolder;">FAQ
+                </center>
+                <h2 style="text-align: center;"> Hardware Problems </h2>
+                <section class="faq-container">
+                    <% hardwareProblemTypes.forEach(problemType=> { %>
+                        <div class="faq-one">
+                            <h1 class="faq-page">
+                                <%= problemType.Problem %>
+                            </h1>
+                            <div class="faq-body">
+
+                                <% hardwareFAQ.forEach(faq=> { if(faq.ProblemTypeID == problemType.ID){ %>
+                                    <p><strong>Q: <%= faq.Question %></strong></p>
+                                    <p>A: <%= faq.Answer %>
+                                    </p>
+                                    <% }}) %>
+                            </div>
+
+                        </div>
+                        <hr class="hr-line">
+
+                        <% }) %>
+                </section>
+                <h2 style="text-align: center;"> Software Problems </h2>
+                <section class="faq-container">
+                    <% softwareProblemTypes.forEach(problemType=> { %>
+                        <div class="faq-one">
+                            <h1 class="faq-page">
+                                <%= problemType.Problem %>
+                            </h1>
+                            <div class="faq-body">
+
+                                <% softwareFAQ.forEach(faq=> { if(faq.ProblemTypeID == problemType.ID){ %>
+                                    <p><strong>Q: <%= faq.Question %></strong></p>
+                                    <p>A: <%= faq.Answer %>
+                                    </p>
+                                    <% }}) %>
+                            </div>
+
+                        </div>
+                        <hr class="hr-line">
+
+                        <% }) %>
+                </section>
+            </main>
+
+            <% if(deptid==6){ %>
+                <div class="wrapper" style="margin: 0 auto; border:solid 1px black; border-radius:5px;">
+                    <h2 style="width:100%; text-align:center;">FAQ Form</h2>
+                    <div style="margin: 0 auto;">
+                        <form action="/faq" method="POST" style="width:fit-content; margin: 0 auto;">
+                            <label for="Category">Category</label>
+                            <select name="Category" required>
+                                <option value="Hardware">Hardware</option>
+                                <option value="Software">Software</option>
+                            </select>
+                            <label for="ProblemType">Problem Type</label>
+                            <select name="ProblemType" required>
+                                <% problemTypes.forEach(problemType=> { %>
+                                    <option value="<%= problemType.ID %>">
+                                        <%= problemType.Problem %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                            <label for="Question">Question</label>
+                            <input required type="text" id="Question" name="Question" value="">
+                            <label for="Answer">Answer</label>
+                            <input required type="text" id="Answer" name="Answer" value="">
+                            <button style="width:100%;" class="field btn" type="submit" value="Submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <% } %>
+
+                    <script src="javascripts/FAQ.js"></script>
+
+                    <%- include partials/footer %>

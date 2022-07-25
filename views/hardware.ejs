@@ -1,0 +1,108 @@
+<%- include partials/header %>
+
+  <title>Hardware</title>
+
+  <link rel="stylesheet" href="./stylesheets/archive.css">
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <main>
+        <%- include partials/navbar %>
+          <center style="padding-top: 40px; padding-bottom:10px; font-size: xx-large; font-weight: bolder;">Hardware
+          </center>
+          <div class="wrapper" style="padding-bottom:20px;">
+            <div class="third-row"></div>
+            <div class="third-row">
+              <div class="wrapper">
+                <div class="searchbar">
+                  <div class="input-extended input-extended-left">
+                    <span class="input-extension-left" id="search-addon"><i class="fas fa-search"></i></span>
+                    <!-- Search input -->
+                    <input autocomplete="off" onkeyup="hardwareSearch()" id="hardware-search" type="text"
+                      class="form-control" placeholder="Search..." aria-label="search" aria-describedby="search-addon">
+                    <!-- Select to choose field to search by -->
+                    <select class="input-extension-right" id="search-dropdown" aria-label="Default select example">
+                      <option value="0">PersonID</option>
+                      <option value="1">Make</option>
+                      <option value="2">Device</option>
+                      <option value="3">Serial Number</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="full-row">
+                  <!-- Help text below search bar -->
+                  <div id="search-help" class="form-text">Search for hardware</div>
+                </div>
+              </div>
+            </div>
+            <div class="third-row"></div>
+
+          </div>
+
+
+          <table class='table1'>
+            <thead class="table-dark" style="position: sticky; top: 0;">
+              <tr>
+                <th scope="col">Person ID</th>
+                <th scope="col">Make</th>
+                <th scope="col">Device</th>
+                <th scope="col">Serial Number</th>
+              </tr>
+            </thead>
+            <tbody id="myTable">
+              <% hardware.forEach(row=> { %>
+                <tr class="tableRow">
+                  <td class='personID'>
+                    <%= row.ID %>
+                  </td>
+                  <td class='make'>
+                    <%= row.make %>
+                  </td>
+                  <td class='device'>
+                    <%= row.device %>
+                  </td>
+                  <td class='serialNo'>
+                    <%= row.serialNo %>
+                  </td>
+                </tr>
+                <% }) %>
+            </tbody>
+          </table>
+    </div>
+
+    <div class="third-row"></div>
+    <div class="third-row" style="margin: 0 auto; border:solid 1px black; border-radius:5px;">
+      <form action="" method="post">
+
+
+        <h4 style="text-align: center;">Add new Hardware</h4>
+
+        <label style="margin-left:20px" for="SerialNo">Serial No</label>
+        <input name="SerialNo" id="SerialNo" type="text">
+        <br>
+        <label style="margin-left:20px" for="Device">Device Name</label>
+        <input name="Device" id="Device" type="text">
+        <br>
+        <label style="margin-left:20px" for="Make">Make</label>
+        <input name="Make" id="Make" type="text">
+        <br>
+        <label style="margin-left:20px" for="PersonID">Personnel</label>
+        <select style="margin-bottom:20px;" name="PersonID" id="PersonID">
+          <!-- Add all reporters from database as items to select -->
+          <% personnel.forEach(person=> { %>
+            <option value=<%=person.ID %>><%= person.FullName %>
+            </option>
+            <% }); %>
+        </select>
+        <br>
+        <button style="margin-left:20px" type="submit" id='submit' name='submit'>Submit</button>
+
+      </form>
+    </div>
+    <div class="third-row"></div>
+
+    </main>
+    </div>
+    <script src="./javascripts/hardware.js"></script>
+    <%- include partials/footer %>

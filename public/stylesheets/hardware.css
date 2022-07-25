@@ -1,0 +1,37 @@
+.table1 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    border: solid 1px lightgray;
+}
+
+td {
+    background-color: initial !important;
+}
+
+.table1 td,
+.table1 th {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+}
+
+.table1 tr:nth-child(even) {
+    background-color: rgb(241, 235, 235) !important;
+}
+
+.table1 tr:hover {
+    background-color: lightgray !important;
+}
+
+.table1 th {
+    padding-bottom: 1rem;
+    font-weight: 100;
+    font-size: 0.8rem;
+    text-align: left;
+    background-color: orange;
+    color: white;
+    width: 8%;
+}

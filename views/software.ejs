@@ -1,0 +1,114 @@
+<%- include partials/header %>
+
+  <title>Software</title>
+
+  <link rel="stylesheet" href="./stylesheets/archive.css">
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <main>
+        <%- include partials/navbar %>
+          <center style="padding-top: 40px; padding-bottom:10px; font-size: xx-large; font-weight: bolder;">Software
+          </center>
+          <div class="wrapper" style="padding-bottom:20px;">
+            <div class="third-row"></div>
+            <div class="third-row">
+              <div class="wrapper">
+                <div class="searchbar">
+                  <div class="input-extended input-extended-left">
+                    <span class="input-extension-left" id="search-addon"><i class="fas fa-search"></i></span>
+                    <!-- Search input -->
+                    <input autocomplete="off" onkeyup="softwareSearch()" id="software-search" type="text"
+                      class="form-control" placeholder="Search..." aria-label="search" aria-describedby="search-addon">
+                    <!-- Select to choose field to search by -->
+                    <select class="input-extension-right" id="search-dropdown" aria-label="Default select example">
+                      <option value="0">ID</option>
+                      <option value="1">Name</option>
+                      <option value="2">Version</option>
+                      <option value="3">License Number</option>
+                      <option value="4">Person ID</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="full-row">
+                  <!-- Help text below search bar -->
+                  <div id="search-help" class="form-text">Search for Software</div>
+                </div>
+              </div>
+            </div>
+            <div class="third-row"></div>
+
+          </div>
+
+
+          <table class='table1'>
+            <thead class="table-dark" style="position: sticky; top: 0;">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Version</th>
+                <th scope="col">License Number</th>
+                <th scope="col">Person ID</th>
+
+              </tr>
+            </thead>
+            <tbody id="myTable">
+              <% software.forEach(row=> { %>
+                <tr class="tableRow">
+                  <td class='ID'>
+                    <%= row.ID %>
+                  </td>
+                  <td class='SoftwareName'>
+                    <%= row.SoftwareName %>
+                  </td>
+                  <td class='SoftwareVersion'>
+                    <%= row.SoftwareVersion %>
+                  </td>
+                  <td class='LicenseNumber'>
+                    <%= row.LicenseNumber %>
+                  </td>
+                  <td class='PersonID'>
+                    <%= row.PersonID %>
+                  </td>
+                </tr>
+                <% }) %>
+            </tbody>
+          </table>
+    </div>
+
+    <div class="third-row"></div>
+    <div class="third-row" style="margin: 0 auto; border:solid 1px black; border-radius:5px;">
+      <form action="" method="post">
+
+
+        <h4 style="text-align: center;">Add new software</h4>
+
+        <label style="margin-left:20px" for="Softwarename">Software name</label>
+        <input name="Softwarename" id="Softwarename" type="text">
+        <br>
+        <label style="margin-left:20px" for="SoftwarVersion">Software version</label>
+        <input name="SoftwarVersion" id="SoftwarVersion" type="text">
+        <br>
+        <label style="margin-left:20px" for="LicenseNumber">Liense number</label>
+        <input name="LicenseNumber" id="LicenseNumber" type="text">
+        <br>
+        <label style="margin-left:20px" for="PersonID">Personnel</label>
+        <select style="margin-bottom:20px;" name="PersonID" id="PersonID">
+          <!-- Add all reporters from database as items to select -->
+          <% personnel.forEach(person=> { %>
+            <option value=<%=person.ID %>><%= person.FullName %>
+            </option>
+            <% }); %>
+        </select>
+        <br>
+        <button style="margin-left:20px" type="submit" id='submit' name='submit'>Submit</button>
+
+      </form>
+    </div>
+    <div class="third-row"></div>
+
+    </main>
+    </div>
+    <script src="./javascripts/software.js"></script>
+    <%- include partials/footer %>

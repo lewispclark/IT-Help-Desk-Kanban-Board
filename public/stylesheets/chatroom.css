@@ -1,0 +1,69 @@
+#bodybox {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+    width:400px;
+    font: 20px helvetica, sans-serif;
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 5px 5px 5px grey;
+    border-radius: 10px;
+    visibility: hidden;
+    padding-top: 10px;
+    padding-bottom:10px;
+}
+
+#chatbutton {
+    border-radius: 50%;
+    border: 0.2rem solid #ffffff3d;
+    background-color: orange;
+    position: fixed;
+    font-size: 50;
+    bottom: 0;
+    right: 0;
+    padding: 15;
+}
+
+#closeChatbox {
+    margin: 10px;
+    height: 50px;
+    width: 50px;
+    border-radius: 0.2rem;
+    border: 0.2rem solid #ffffff3d;
+    background-color: orange;
+}
+
+#chatboarder {
+    border-style: solid;
+    background-color: #c8dac8;
+    border-width: 2px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 15px;
+}
+
+.chatlog {
+    font: 20px helvetica, sans-serif;
+}
+
+#chatbox {
+    font: 20px helvetica, sans-serif;
+    height: 20px;
+    width: 100%;
+}
+
+h1 {
+    margin: auto;
+}
+
+pre {
+    background-color: #f6f9f6;
+    margin-left: 20px;
+}

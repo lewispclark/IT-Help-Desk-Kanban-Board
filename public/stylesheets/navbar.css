@@ -1,0 +1,56 @@
+div {
+    font-family: sans-serif;
+}
+
+#mainbox {
+    font-size: 24px;
+    cursor: pointer;
+    position:fixed;
+}
+
+.navbar {
+    position: fixed;
+    top: 0px;
+    left: -250px;
+    height: 90%;
+    width: 250px;
+    background-color: black;
+    z-index: 1;
+    padding-top: 100px;
+    overflow-x: hidden;
+    transition: all 0.5s;
+    border-radius: 0rem 1rem;
+    opacity: 0.7;
+}
+
+.navbar a {
+    padding: 8px 8px 10px 50px;
+    text-decoration: none;
+    font-size: 25px;
+    color: orange;
+    display: block;
+}
+
+
+.navbar a:hover {
+    color: white;
+}
+
+.navbar .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 32px;
+}
+
+.navbar .closebtn:hover {
+    cursor: pointer;
+}
+
+.navbar .logout {
+    position: absolute;
+    top: 8px;
+    font-size: 25px;
+    margin-left: 110px;
+}
